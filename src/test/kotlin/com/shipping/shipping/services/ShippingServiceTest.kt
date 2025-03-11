@@ -24,7 +24,7 @@ class ShippingServiceTest {
     private val defaulDistance = 50.0
 
     @Test
-    fun `Should return ordened by different cost and same estimated days`() {
+    fun `Should return sorted by different cost and same estimated days`() {
         val option1 = ShippingOptionMock.create(cost = 25.0)
         val option2 = ShippingOptionMock.create(cost = 100.0)
         val option3 = ShippingOptionMock.create(cost = 7.59)
@@ -41,7 +41,7 @@ class ShippingServiceTest {
     }
 
     @Test
-    fun `Should return ordened by same cost and different estimated days`() {
+    fun `Should return sorted by same cost and different estimated days`() {
         val option1 = ShippingOptionMock.create(estimatedDays = 5)
         val option2 = ShippingOptionMock.create(estimatedDays = 6)
         val option3 = ShippingOptionMock.create(estimatedDays = 1)
@@ -58,7 +58,7 @@ class ShippingServiceTest {
     }
 
     @Test
-    fun `Should return ordened by different cost and different estimated days`() {
+    fun `Should return sorted by different cost and different estimated days`() {
         val option1 = ShippingOptionMock.create(cost = 25.0, estimatedDays = 3)
         val option2 = ShippingOptionMock.create(cost = 50.0, estimatedDays = 1)
         val option3 = ShippingOptionMock.create(cost = 10.0, estimatedDays = 7)
@@ -88,7 +88,7 @@ class ShippingServiceTest {
     }
 
     @Test
-    fun `Should return ordened a list when has same cost and estimated dates`() {
+    fun `Should return sorted a list when has same cost and estimated dates`() {
         val option1 = ShippingOptionMock.create()
         val option2 = ShippingOptionMock.create()
         val option3 = ShippingOptionMock.create()
@@ -105,7 +105,7 @@ class ShippingServiceTest {
     }
 
     @Test
-    fun `Should return ordened a list with options inside the distance`() {
+    fun `Should return sorted a list with options inside the distance`() {
         val option1 = ShippingOptionMock.create(cost = 10.0, estimatedDays = 1, maxDistanceInMeters = 25.0)
         val option2 = ShippingOptionMock.create(cost = 20.0, estimatedDays = 1, maxDistanceInMeters = 100.0)
         val option3 = ShippingOptionMock.create(cost = 15.0, estimatedDays = 5, maxDistanceInMeters = 100.0)
