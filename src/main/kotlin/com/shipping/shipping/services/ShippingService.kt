@@ -1,7 +1,5 @@
 package com.shipping.shipping.services
 
-import com.shipping.shipping.domain.ShippingOptions
-import com.shipping.shipping.domain.ShippingType
 import com.shipping.shipping.dto.ShippingResponseDTO
 import com.shipping.shipping.repositories.ShippingRepository
 import org.springframework.stereotype.Service

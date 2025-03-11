@@ -14,11 +14,6 @@ class ShippingController(
 
     @GetMapping
     fun getShippingOptions(): List<ShippingResponseDTO> {
-        // get shippings options from db
-        // order
-        // return
-
-
         return service.getShippingOptions()
     }
 
