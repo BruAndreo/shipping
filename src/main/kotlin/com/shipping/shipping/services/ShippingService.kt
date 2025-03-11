@@ -1,5 +1,6 @@
 package com.shipping.shipping.services
 
+import com.shipping.shipping.domain.ShippingOptions
 import com.shipping.shipping.dto.ShippingResponseDTO
 import com.shipping.shipping.repositories.ShippingRepository
 import org.springframework.stereotype.Service
@@ -9,11 +10,11 @@ class ShippingService(
     private val repository: ShippingRepository
 ) {
 
-    fun getShippingOptions(): List<ShippingResponseDTO> {
+    fun getShippingOptions(distance: Double): List<ShippingResponseDTO> {
         val options = repository.getOptions()
-
-        val orderedOptions = options.sortedBy { it.cost }.sortedBy { it.estimatedDays }
-
-        return orderedOptions.map { it.toDto() }
+        return options
+            .filter { it.maxDistanceInMeters >= distance }
+            .sortedWith(compareBy(ShippingOptions::cost, ShippingOptions::estimatedDays))
+            .map { it.toDto() }
     }
 }
