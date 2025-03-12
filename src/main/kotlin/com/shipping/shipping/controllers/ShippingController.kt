@@ -1,9 +1,12 @@
 package com.shipping.shipping.controllers
 
+import com.shipping.shipping.domain.ShippingOptions
 import com.shipping.shipping.dto.ShippingResponseDTO
 import com.shipping.shipping.services.ShippingService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -23,4 +26,8 @@ class ShippingController(
         return service.getShippingOptions(distance)
     }
 
+    @PostMapping("/option")
+    fun createShippingOption(@RequestBody body: ShippingOptions) {
+        service.createShippingOption(body)
+    }
 }

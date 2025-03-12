@@ -17,4 +17,8 @@ class ShippingService(
             .sortedWith(compareBy(ShippingOptions::cost, ShippingOptions::estimatedDays))
             .map { it.toDto() }
     }
+
+    fun createShippingOption(shippingOptions: ShippingOptions) {
+        repository.saveValue(shippingOptions.name, shippingOptions)
+    }
 }

@@ -1,0 +1,11 @@
+services:
+
+  service:
+    build: .
+    ports:
+      - "3001:3001"
+
+  redis:
+    image: redis:7.4-alpine3.21
+    ports:
+      - "6379:6379"
