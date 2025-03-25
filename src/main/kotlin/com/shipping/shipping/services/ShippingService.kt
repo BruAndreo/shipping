@@ -18,7 +18,7 @@ class ShippingService(
             .map { it.toDto() }
     }
 
-    fun createShippingOption(shippingOptions: ShippingOptions) {
-        repository.saveValue(shippingOptions.name, shippingOptions)
+    fun createShippingOption(shippingOptions: List<ShippingOptions>) {
+        repository.saveValue("shipping-options", shippingOptions)
     }
 }

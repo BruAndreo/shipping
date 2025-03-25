@@ -26,8 +26,8 @@ class ShippingController(
         return service.getShippingOptions(distance)
     }
 
-    @PostMapping("/option")
-    fun createShippingOption(@RequestBody body: ShippingOptions) {
+    @PostMapping("/options")
+    fun createShippingOption(@RequestBody body: List<ShippingOptions>) {
         service.createShippingOption(body)
     }
 }

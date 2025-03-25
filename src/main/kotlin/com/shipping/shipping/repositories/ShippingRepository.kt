@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Repository
 
 @Repository
-class ShippingRepository(private val redisTemplate: RedisTemplate<String, ShippingOptions>) : RedisTemplateRepository {
+class ShippingRepository(private val redisTemplate: RedisTemplate<String, List<ShippingOptions>>) : RedisTemplateRepository {
     fun getOptions(): List<ShippingOptions> {
         return listOf(
             ShippingOptions("a", ShippingType.DELIVERY, 25.0, 3, 100.0),
@@ -16,11 +16,11 @@ class ShippingRepository(private val redisTemplate: RedisTemplate<String, Shippi
         )
     }
 
-    override fun saveValue(key: String, value: ShippingOptions) {
+    override fun saveValue(key: String, value: List<ShippingOptions>) {
         redisTemplate.opsForValue().set(key, value)
     }
 
-    override fun getValue(key: String): ShippingOptions? {
+    override fun getValue(key: String): List<ShippingOptions> {
         TODO("Not yet implemented")
     }
 }
